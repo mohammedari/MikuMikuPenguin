@@ -6,10 +6,11 @@ before_install:
   - sudo apt-get update
 install:
   - sudo apt-get install g++-4.8
-  - sudo apt-get install automake libglfw-dev libglew-dev libglm-dev libbullet-dev
+  - sudo apt-get install libglfw-dev libglew-dev libglm-dev libbullet-dev
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
   - sudo update-alternatives --config g++
   - export CXXFLAGS="-fpermissive"
 script:
-  - autoreconf -i && ./configure && make
+  - automake --add-missing
+  - autoreconf && ./configure && make
   - make check
