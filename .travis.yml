@@ -1,7 +1,7 @@
 language: cpp
 compiler: gcc
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo add-apt-repository ppa:blk/ppa -y
   - sudo apt-get update
 install:
