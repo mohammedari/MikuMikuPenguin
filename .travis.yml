@@ -5,9 +5,11 @@ before_install:
   - sudo add-apt-repository ppa:blk/ppa -y
   - sudo apt-get update
 install:
-  - sudo apt-get install g++-4.8
+  - sudo apt-get install gcc-4.8 g++-4.8
   - sudo apt-get install autoconf-archive libglfw-dev libglew-dev libglm-dev libbullet-dev
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 90
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
+  - sudo update-alternatives --config gcc
   - sudo update-alternatives --config g++
   - export CXXFLAGS="-fpermissive"
 script:
