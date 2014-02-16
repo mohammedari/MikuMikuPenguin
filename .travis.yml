@@ -11,5 +11,5 @@ install:
   - sudo update-alternatives --config g++
   - export CXXFLAGS="-fpermissive"
 script:
-  - autoreconf -i && ./configure && make
+  - autoreconf -ivf && ./configure && make
   - make check
