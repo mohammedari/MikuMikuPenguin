@@ -1,0 +1,12 @@
+language: cpp
+compiler: gcc
+before_install:
+  - sudo add-apt-repository -y ppa:blk/ppa
+  - sudo apt-get update
+install:
+  - sudo apt-get install -qq gnulib #stdbool.m4 is required for AC_CHECK_HEADER_STDBOOL in configure.ac
+  - sudo apt-get install -qq libglfw-dev libglew-dev libglm-dev libbullet-dev libsoil-dev
+  - export CXXFLAGS="-fpermissive"
+script:
+  - autoreconf -i -I/usr/share/gnulib/m4 && ./configure && make
+  - make check
