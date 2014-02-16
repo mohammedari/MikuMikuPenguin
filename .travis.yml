@@ -13,6 +13,6 @@ install:
   - sudo update-alternatives --config g++
   - export CXXFLAGS="-fpermissive"
 script:
-  - aclocal && automake -ac && autoheader && autoconf
+  - libtoolize && aclocal && automake -ac && autoheader && autoconf
   - ./configure && make
   - make check
