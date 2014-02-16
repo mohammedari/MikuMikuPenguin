@@ -104,7 +104,7 @@ AC_CHECK_HEADERS([glm/gtc/matrix_transform.hpp],
 
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_CHECK_HEADER_STDBOOL
+#AC_CHECK_HEADER_STDBOOL
 AC_TYPE_INT16_T
 AC_TYPE_INT8_T
 AC_TYPE_SIZE_T
