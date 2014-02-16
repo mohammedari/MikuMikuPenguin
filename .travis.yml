@@ -1,9 +1,10 @@
 language: cpp
 compiler: gcc
 before_install:
-  - sudo apt-get update -d
+  - sudo add-apt-repository ppa:blk/ppa -y
+  - sudo apt-get update
 install:
-  - sudo apt-get install libglfw-dev libglew1.6-dev libglm-dev libsoil-dev libbullet-dev
+  - sudo apt-get install libglfw-dev libglew-dev libglm-dev libbullet-dev
 after_install:
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
   - sudo update-alternatives --config g++
