@@ -1,17 +1,10 @@
 language: cpp
 compiler: gcc
 before_install:
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo add-apt-repository -y ppa:blk/ppa
   - sudo apt-get update
 install:
-  - sudo apt-get install -qq gnulib #stdbool.m4 is required for AC_CHECK_HEADER_STDBOOL
-  - sudo apt-get install -qq gcc-4.8 g++-4.8
   - sudo apt-get install -qq libglfw-dev libglew-dev libglm-dev libbullet-dev libsoil-dev
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 90
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
-  - sudo update-alternatives --config gcc
-  - sudo update-alternatives --config g++
   - export CXXFLAGS="-fpermissive"
 script:
   - autoreconf -i -I/usr/share/gnulib/m4 && ./configure && make
