@@ -13,7 +13,6 @@ add_definitions(${Qt5Widgets_DEFINITIONS})
 
 # Find the QtWidgets library
 find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Declarative REQUIRED)
 find_package(Qt5OpenGL REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Quick REQUIRED)

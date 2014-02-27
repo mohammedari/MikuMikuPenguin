@@ -1,12 +1,18 @@
 language: cpp
 compiler: gcc
 before_install:
-  - sudo add-apt-repository -y ppa:blk/ppa
-  - sudo apt-get update
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test #g++ 4.8
+  - sudo add-apt-repository -y ppa:kalakris/cmake          #CMake 2.8.11
+  - sudo add-apt-repository -y ppa:beineri/opt-qt521       #Qt 5.2.1
+  - sudo add-apt-repository -y ppa:blk/ppa                 #Bullet
+  - sudo apt-get update -qq
 install:
-  - sudo apt-get install -qq gnulib #stdbool.m4 is required for AC_CHECK_HEADER_STDBOOL in configure.ac
+  - sudo apt-get install -qq g++-4.8 
+  - sudo apt-get install -qq cmake 
+  - sudo apt-get install -qq qt52declarative
   - sudo apt-get install -qq libglfw-dev libglew-dev libglm-dev libbullet-dev libsoil-dev
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
   - export CXXFLAGS="-fpermissive"
 script:
-  - autoreconf -i -I/usr/share/gnulib/m4 && ./configure && make
-  - make check
+  - cmake . -DCMAKE_PREFIX_PATH=/opt/qt52/lib/cmake
+  - make
